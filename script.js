@@ -58,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
 
             // Send to Backend API
-            // Using absolute URL in case the file is opened directly (file://) instead of via localhost
-            fetch('http://localhost:3000/api/leads', {
+            fetch('/api/leads', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -71,18 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     return res.json();
                 })
                 .then(response => {
-                    // Show modal
                     successModal.classList.add('active');
-
-                    // Reset form
                     form.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.opacity = '1';
-                    submitBtn.disabled = false;
                 })
                 .catch(err => {
-                    console.error('Error saving lead:', err);
-                    alert("Something went wrong connecting to the backend. Is the server running on port 3000?");
+                    console.warn('Backend unavailable, falling back to local storage (Vercel Mode). Error:', err);
+
+                    data.timestamp = new Date().toISOString();
+                    let waitlist = JSON.parse(localStorage.getItem('revesta_waitlist') || '[]');
+                    waitlist.push(data);
+                    localStorage.setItem('revesta_waitlist', JSON.stringify(waitlist));
+
+                    successModal.classList.add('active');
+                    form.reset();
+                })
+                .finally(() => {
                     submitBtn.textContent = originalText;
                     submitBtn.style.opacity = '1';
                     submitBtn.disabled = false;

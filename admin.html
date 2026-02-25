@@ -194,8 +194,42 @@
                     `;
                 }
             } catch (err) {
-                console.error(err);
-                document.getElementById('leads-body').innerHTML = '<tr><td colspan="5" style="text-align: center; color: red; padding: 30px;">Failed to load data. Ensure backend is running.</td></tr>';
+                console.warn('Backend fetch failed, attempting to read standard local storage (Vercel Mode).');
+
+                const fallbackData = JSON.parse(localStorage.getItem('revesta_waitlist') || '[]');
+                const tbody = document.getElementById('leads-body');
+                tbody.innerHTML = '';
+
+                if (fallbackData.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 30px;">Backend offline. No local leads collected yet.</td></tr>';
+                    return;
+                }
+
+                let disposers = 0, collectors = 0, recyclers = 0;
+
+                fallbackData.reverse().forEach(lead => {
+                    if (lead.role === 'disposer') disposers++;
+                    if (lead.role === 'collector') collectors++;
+                    if (lead.role === 'recycler') recyclers++;
+
+                    const tr = document.createElement('tr');
+                    const date = lead.timestamp ? new Date(lead.timestamp).toLocaleDateString() + ' ' + new Date(lead.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Just now';
+                    tr.innerHTML = `
+                        <td>${date}</td>
+                        <td>${lead.name}</td>
+                        <td>${lead.email}</td>
+                        <td>${lead.phone}</td>
+                        <td><span class="badge-role role-${lead.role}">${lead.role.charAt(0).toUpperCase() + lead.role.slice(1)}</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById('stats').innerHTML = `
+                    <div class="stat-card"><div class="stat-title">Total Waitlist (Local)</div><div class="stat-value">${fallbackData.length}</div></div>
+                    <div class="stat-card"><div class="stat-title">Disposers</div><div class="stat-value">${disposers}</div></div>
+                    <div class="stat-card"><div class="stat-title">Collectors</div><div class="stat-value">${collectors}</div></div>
+                    <div class="stat-card"><div class="stat-title">Recyclers</div><div class="stat-value">${recyclers}</div></div>
+                `;
             }
         }
 
