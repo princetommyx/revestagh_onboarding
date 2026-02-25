@@ -167,6 +167,13 @@ a {
     color: var(--primary);
 }
 
+.brand-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
 .nav-links {
     display: flex;
     gap: 32px;
