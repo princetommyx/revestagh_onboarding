@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revesta - Turn Waste Into Value</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="ri-leaf-fill"></i> Revesta
+            </a>
+            <div class="nav-links">
+                <a href="#promo">Why Revesta</a>
+                <a href="#disposers">Disposers</a>
+                <a href="#collectors">Collectors</a>
+                <a href="#recyclers">Recyclers</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#promo" class="mobile-link">Why Revesta</a>
+            <a href="#disposers" class="mobile-link">Disposers</a>
+            <a href="#collectors" class="mobile-link">Collectors</a>
+            <a href="#recyclers" class="mobile-link">Recyclers</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <span class="badge">App Launching Soon</span>
+                <h1 class="hero-title">Turn Waste Into <span class="highlight">Value</span>.</h1>
+                <p class="hero-subtitle">The platform that seamlessly connects Disposers, Collectors, and Recyclers to
+                    build a sustainable, rewarding African ecosystem.</p>
+                <div class="hero-actions">
+                    <a href="#roles" class="btn btn-primary">Join the Waitlist</a>
+                    <a href="#trust" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-up">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80"
+                    alt="Sustainable Environment" class="img-fluid hero-img-rounded">
+            </div>
+        </div>
+    </header>
+
+    <!-- Promo Cards Section -->
+    <section class="promo-section" id="promo">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Why Revesta?</h2>
+                <p>Empowering communities through sustainable waste management in Africa.</p>
+            </div>
+            <div class="promo-grid">
+                <div class="promo-card fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1531123414708-1e1d1911cb11?auto=format&fit=crop&w=800&q=80"
+                        alt="African Woman Smiling" class="promo-img">
+                    <div class="promo-content">
+                        <h3>Empowering Communities</h3>
+                        <p>We believe in transforming waste into wealth across African cities, creating a cleaner and
+                            richer environment for everyone.</p>
+                    </div>
+                </div>
+                <div class="promo-card fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1518398046578-8cca57782e17?auto=format&fit=crop&w=800&q=80"
+                        alt="African Worker" class="promo-img">
+                    <div class="promo-content">
+                        <h3>Creating Local Jobs</h3>
+                        <p>Our platform enables local collectors to optimize routes, grow their businesses sustainably,
+                            and hire more people.</p>
+                    </div>
+                </div>
+                <div class="promo-card fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80"
+                        alt="Environment" class="promo-img">
+                    <div class="promo-content">
+                        <h3>Protecting The Earth</h3>
+                        <p>By connecting the waste ecosystem, we significantly reduce landfill waste and promote a
+                            sustainable, circular economy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles / Signup Sections -->
+    <section class="roles-section" id="roles">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Choose Your Role</h2>
+                <p>Sign up now to secure your spot when we launch. Be part of the change.</p>
+            </div>
+
+            <div class="roles-grid">
+
+                <!-- Disposer Card -->
+                <div class="role-card fade-in-up" id="disposers">
+                    <div class="role-icon">
+                        <i class="ri-delete-bin-6-line"></i>
+                    </div>
+                    <h3>For Disposers</h3>
+                    <p class="role-desc">Easily get rid of your waste, track your environmental impact, and earn rewards
+                        for responsible disposal.</p>
+                    <form class="signup-form" data-role="disposer">
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Join as Disposer</button>
+                    </form>
+                </div>
+
+                <!-- Collector Card -->
+                <div class="role-card fade-in-up" id="collectors">
+                    <div class="role-icon">
+                        <i class="ri-truck-line"></i>
+                    </div>
+                    <h3>For Collectors</h3>
+                    <p class="role-desc">Optimize your routes, receive steady pickup requests, and increase your daily
+                        collection volume efficiently.</p>
+                    <form class="signup-form" data-role="collector">
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="Full Name or Company" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Join as Collector</button>
+                    </form>
+                </div>
+
+                <!-- Recycler Card -->
+                <div class="role-card fade-in-up" id="recyclers">
+                    <div class="role-icon">
+                        <i class="ri-recycle-line"></i>
+                    </div>
+                    <h3>For Recyclers</h3>
+                    <p class="role-desc">Source high-quality, pre-sorted recyclable materials effectively and scale your
+                        processing operations.</p>
+                    <form class="signup-form" data-role="recycler">
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="Company Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Join as Recycler</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section" id="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item fade-in-up">
+                    <div class="trust-icon">
+                        <i class="ri-shield-check-line"></i>
+                    </div>
+                    <h4>Verified Users</h4>
+                    <p>Every participant is vetted for a safe and reliable ecosystem.</p>
+                </div>
+                <div class="trust-item fade-in-up">
+                    <div class="trust-icon">
+                        <i class="ri-lock-2-line"></i>
+                    </div>
+                    <h4>Secure Data</h4>
+                    <p>Your privacy and data are protected with industry-leading security.</p>
+                </div>
+                <div class="trust-item fade-in-up">
+                    <div class="trust-icon">
+                        <i class="ri-earth-line"></i>
+                    </div>
+                    <h4>Environmental Impact</h4>
+                    <p>Together, we are diverting thousands of tons of waste from landfills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><i class="ri-leaf-fill"></i> Revesta</a>
+                    <p>The smartest way to manage waste. App launching soon.</p>
+                </div>
+                <div class="footer-links">
+                    <p><strong>Early users get priority onboarding and early access benefits. 🚀</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Revesta. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal">
+            <div class="modal-icon">
+                <i class="ri-check-line"></i>
+            </div>
+            <h3>You're on the waitlist!</h3>
+            <p>Thank you for signing up. We'll be in touch as soon as the app is ready for your role.</p>
+            <button class="btn btn-primary" id="close-modal">Got it</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
