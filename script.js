@@ -57,16 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.style.opacity = '0.7';
             submitBtn.disabled = true;
 
-            // Send to Backend API
-            fetch('/api/leads', {
+            // Send to Formspree API
+            fetch('https://formspree.io/f/xvzblzor', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
                 .then(res => {
-                    if (!res.ok) throw new Error('Network response was not ok');
+                    if (!res.ok) throw new Error('Formspree network response was not ok');
                     return res.json();
                 })
                 .then(response => {
@@ -74,15 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     form.reset();
                 })
                 .catch(err => {
-                    console.warn('Backend unavailable, falling back to local storage (Vercel Mode). Error:', err);
-
-                    data.timestamp = new Date().toISOString();
-                    let waitlist = JSON.parse(localStorage.getItem('revesta_waitlist') || '[]');
-                    waitlist.push(data);
-                    localStorage.setItem('revesta_waitlist', JSON.stringify(waitlist));
-
-                    successModal.classList.add('active');
-                    form.reset();
+                    console.error('Submission Error:', err);
+                    alert("There was a problem submitting your request. Please try again later.");
                 })
                 .finally(() => {
                     submitBtn.textContent = originalText;
